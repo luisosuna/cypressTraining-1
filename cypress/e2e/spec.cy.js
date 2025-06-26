@@ -12,7 +12,7 @@ describe('Work with iFrames', () => {
 
 const getIframeBody = () => {
   return cy
-    .get('#aid-auth-widget-iFrame')
+    .get('#aid-auth-widget-iFrame', { timeout: 10000 }) // Increased timeout for iframe loading
     .its('0.contentDocument.body').should('not.be.empty')
-    .then(cy.wrap)
-}
+    .then(cy.wrap);
+};
